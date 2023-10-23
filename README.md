@@ -6,7 +6,6 @@ Samen met een erg drukke vakantie betekende dat ik erg weinig tijd had en er dus
 Wat momenteel werkt:
 - CRUD van Klant, Items
 - Layout/Indexing.
-- API ben ik aan begonnen en is ook toegevoegd alleen is niet af op acceptable niveau.
 
 Wat niet werkt:
 - CRUD van Order(Ordereitem)
@@ -18,5 +17,6 @@ Wat niet werkt:
       (Het gaat fout op het moment dat je op het + of - klikt bij een Item card.)
 - Een aantal aspecten zoals het opnieuw bestellen of het rekening houden met verschillende soorten gebruikers(Admin,klant) ben ik nog niet aan toegekomen. de Auth plugin heb ik bewust vermijd aangezien ik alleen maar mensen zag met problemen en auth niet nodig was.
   In de code zul je dus zien dat die dingen niet/amper verwerkt zjn.
+- De API was op een redelijk niveau en de shell werkte ook zoals behoren. Echter nadat ik een referentie aanmaakte naar het MVC project en een koppeling legde met de DB via _context kreeg ik bij opstarten een error die mij niet duidelijk is. In het project zelf krijg ik ook geen errors.
 
 Indien gewenst kan ik laten zien doormiddel van prive projecten dat ik wel ervaring heb met Git/CSSHTML dan dat zichtbaar is in dit project.
