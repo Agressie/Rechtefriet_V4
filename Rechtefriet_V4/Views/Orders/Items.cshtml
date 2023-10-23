@@ -1,0 +1,47 @@
+﻿@model Rechtefriet.Order
+
+@{
+    ViewData["Title"] = "Items";
+}
+
+<h1>Create</h1>
+
+<h4>Order</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Items" method="post">
+            <div class="form-group">
+                @foreach (var Item in ViewBag.Items)
+                {
+                    <div class="card" style="width: 18rem;">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">@Item.Name</h5>
+                            <p class="card-text">@Item.Price</p>
+                            <a type="submit" name="action" value="AddItem" class="btn btn-primary" asp-action="RemoveItem" asp-route-itemid="@Item.Itemid" asp-route-orderid="@Model.Orderid">
+                                -
+                            </a>
+                            <a type="submit" name="action" value="RemoveItem" class="btn btn-primary" asp-action="AddItem" asp-route-itemid="@Item.Itemid" asp-route-orderid="@Model.Orderid">
+                                +
+                            </a>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
+using Rechtefriet_V4.Data;
 
 namespace Rechtefriet;
 
@@ -24,5 +25,6 @@ public partial class Klant
     public string? Adress { get; set; }
 
     [InverseProperty("Klant")]
-    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+    public virtual ICollection<Order>? Orders { get; set; } = new List<Order>();
+
 }

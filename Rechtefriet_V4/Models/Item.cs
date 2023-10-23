@@ -28,4 +28,5 @@ public partial class Item
 
     [Column("discount", TypeName = "decimal(5, 2)")]
     public decimal? Discount { get; set; }
+
 }

@@ -14,21 +14,24 @@ public partial class Order
     public int Orderid { get; set; }
 
     [Column("price", TypeName = "decimal(18, 2)")]
-    public decimal? Price { get; set; }
+    public decimal? Price { get; set; } = 0;
 
     [Column("date", TypeName = "smalldatetime")]
-    public DateTime? Date { get; set; }
+    public DateTime? Date { get; set; } = DateTime.Now;
 
     [Column("discount", TypeName = "decimal(5, 2)")]
-    public decimal? Discount { get; set; }
+    public decimal? Discount { get; set; } = 0;
 
     [Column("klantid")]
     public int Klantid { get; set; }
 
+    [Column(TypeName = "decimal(18, 2)")]
+    public decimal? Totalprice { get; set; } = 0;
+
+    [Column(TypeName = "smalldatetime")]
+    public DateTime? Paydate { get; set; }
+
     [ForeignKey("Klantid")]
     [InverseProperty("Orders")]
     public virtual Klant Klant { get; set; } = null!;
-
-    [InverseProperty("Order")]
-    public virtual ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
 }
