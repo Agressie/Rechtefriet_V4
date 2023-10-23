@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Rechtefriet_V4.Data;
 using System.Xml.Linq;
 
 namespace Rechtefriet_API.Controllers
@@ -14,23 +15,23 @@ namespace Rechtefriet_API.Controllers
                 _context = context;
             }
 
-            [HttpGet("{id:int}", Name = "Getklant")]
-            public async Task<ActionResult<Klant>> GetKlant(int id)
+            [HttpGet("{index:int}", Name = "Getklant")]
+            public async Task<ActionResult<Klant>> GetKlant(int index)
             {
-                Klant klant = await _context.Klant.Where(c => c.Id == id).FirstAsync();
+                var klant = await _context.Klants.FindAsync(index);
 
                 if (klant == null)
                 {
                     return NotFound();
                 }
 
-                return klant;
+                return Ok(klant);
             }
 
             [HttpPost("{index:int, Name:string}", Name = "Changename")]
             public async Task<ActionResult<Klant>> Postname(int index, string name)
             {
-                Klant klant = await _context.Klant.Where(c => c.Id == index).FirstAsync();
+                var klant = await _context.Klants.FindAsync(index);
 
                 if (klant == null)
                 {
@@ -46,7 +47,7 @@ namespace Rechtefriet_API.Controllers
             [HttpPost("{index:int, Adress:string}", Name = "ChangeAdress")]
             public async Task<ActionResult<Klant>> postadress(int index, string adress)
             {
-                Klant klant = await _context.Klant.Where(c => c.Id == index).FirstAsync();
+            var klant = await _context.Klants.FindAsync(index);
 
                 if (klant == null)
                 {

@@ -32,8 +32,4 @@
 	  <None Include="wwwroot\Resoures\HomeBackground.jpg" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <ProjectReference Include="..\Rechtefriet_API\Rechtefriet_API.csproj" />
-	</ItemGroup>
-
 </Project>
